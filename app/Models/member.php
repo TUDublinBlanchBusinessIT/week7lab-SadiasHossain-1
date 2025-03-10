@@ -38,6 +38,7 @@ class member extends Model
         'surname',
         'membertype',
         'dateofbirth'
+
     ];
 
     /**
@@ -74,5 +75,10 @@ class member extends Model
     public function bookings()
     {
         return $this->hasMany(\App\Models\Booking::class, 'memberid');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class,'userid','id');
     }
 }
